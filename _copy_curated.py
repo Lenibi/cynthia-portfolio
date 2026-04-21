@@ -2,9 +2,9 @@
 import os, shutil
 
 SRC = r"C:/Stuff/!Startup/cynthia-portfolio/cynthia portfolio/_extracted/word/media"
-DST = r"C:/Stuff/!Startup/cynthia-portfolio/site/img"
+DST = r"C:/Stuff/!Startup/cynthia-portfolio/img"
 RESUME_SRC = r"C:/Stuff/!Startup/cynthia-portfolio/cynthia portfolio/CYNTHIA RESUME-1.pdf"
-RESUME_DST = r"C:/Stuff/!Startup/cynthia-portfolio/site/CynthiaWang_Resume.pdf"
+RESUME_DST = r"C:/Stuff/!Startup/cynthia-portfolio/CynthiaWang_Resume.pdf"
 
 JPG_IDS = {5,20,26,30,36,46,48,49,53,77,78,88,90,97,98,100,107,108,114,118,122,124,129,130,137,149,150,152,157,164,170,176,181,199,206,209,211,212,215,218,219,220,233,235,239,246,247,252,254,282,307,309,314,317,332,336,337,338,342,349,350,351,353,354,355,356}
 
