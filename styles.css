@@ -40,6 +40,11 @@
 
 /* ----- base ----- */
 *, *::before, *::after { box-sizing: border-box; }
+
+/* Bake in the 110% visual zoom Cynthia likes.
+   Applied to a wrapper so fixed-positioned cursors (outside the wrap)
+   stay in true viewport coords and don't drift from the mouse. */
+.zoom-wrap { zoom: 1.1; }
 html, body {
   margin: 0; padding: 0;
   background: var(--bg-0);
