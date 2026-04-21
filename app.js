@@ -71,4 +71,47 @@
       window.scrollTo({ top, behavior: "smooth" });
     });
   });
+
+  // Custom cursor — dot follows exactly, ring eases behind, grows on hover
+  const finePointer = matchMedia("(pointer: fine)").matches && matchMedia("(hover: hover)").matches;
+  const dot = document.querySelector(".cursor-dot");
+  const ring = document.querySelector(".cursor-ring");
+  if (finePointer && dot && ring) {
+    document.documentElement.classList.add("custom-cursor");
+
+    let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+    let rx = mx, ry = my;
+
+    window.addEventListener("pointermove", e => {
+      mx = e.clientX; my = e.clientY;
+      dot.style.transform = `translate(${mx}px, ${my}px)`;
+    }, { passive: true });
+
+    const loop = () => {
+      rx += (mx - rx) * 0.18;
+      ry += (my - ry) * 0.18;
+      ring.style.transform = `translate(${rx}px, ${ry}px)`;
+      requestAnimationFrame(loop);
+    };
+    requestAnimationFrame(loop);
+
+    const hoverSelector = 'a, button, [role="tab"], .tag, .chip, .feature-card, .cell, .shot, .hero-facts > div, .hero-recent li';
+    document.addEventListener("mouseover", e => {
+      if (e.target.closest(hoverSelector)) ring.classList.add("is-hover");
+    });
+    document.addEventListener("mouseout", e => {
+      if (e.target.closest(hoverSelector) && !(e.relatedTarget && e.relatedTarget.closest && e.relatedTarget.closest(hoverSelector))) {
+        ring.classList.remove("is-hover");
+      }
+    });
+
+    window.addEventListener("mousedown", () => ring.classList.add("is-click"));
+    window.addEventListener("mouseup", () => ring.classList.remove("is-click"));
+    document.addEventListener("mouseleave", () => {
+      dot.style.opacity = "0"; ring.style.opacity = "0";
+    });
+    document.addEventListener("mouseenter", () => {
+      dot.style.opacity = "1"; ring.style.opacity = "1";
+    });
+  }
 })();
