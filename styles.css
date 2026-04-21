@@ -622,9 +622,37 @@ a { color: inherit; text-decoration: none; }
   transition: border-color .3s;
 }
 .album-collage .main:hover { border-color: var(--accent); }
-.album-collage .main img {
+.album-collage .main > img {
   width: 100%; aspect-ratio: 1; object-fit: cover;
   border: 1px solid var(--rule);
+}
+.album-collage .album-pair {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.album-collage .album-pair figure {
+  margin: 0;
+  position: relative;
+  border: 1px solid var(--rule);
+  overflow: hidden;
+  transition: border-color .3s;
+}
+.album-collage .album-pair figure:hover { border-color: var(--accent); }
+.album-collage .album-pair img {
+  width: 100%; aspect-ratio: 1; object-fit: cover;
+  display: block;
+  transition: transform .6s;
+}
+.album-collage .album-pair figure:hover img { transform: scale(1.03); }
+.album-collage .album-pair figcaption {
+  position: absolute; left: 10px; bottom: 10px;
+  font-family: var(--font-mono);
+  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: #fff;
+  background: rgba(0,0,0,0.55);
+  padding: 4px 9px;
+  border-radius: 3px;
+  backdrop-filter: blur(6px);
 }
 .album-collage .main h3 {
   font-family: var(--font-display);
