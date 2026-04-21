@@ -1,0 +1,16 @@
+# deps
+node_modules/
+
+# raw source material (too large for repo)
+cynthia portfolio/
+claude_design_output/
+
+# editor / os
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
+
+# local claude state
+.claude/settings.local.json
