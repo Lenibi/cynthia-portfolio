@@ -48,8 +48,11 @@ html, body {
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  overflow-x: hidden;
 }
+/* keep horizontal overflow off-screen without killing position:sticky
+   (overflow-x:hidden on html/body disables sticky in Chrome/Firefox) */
+html { overflow-x: clip; }
+body { overflow-x: clip; }
 body {
   background-image:
     radial-gradient(circle at 85% 12%, rgba(181, 127, 255, 0.06), transparent 50%),
