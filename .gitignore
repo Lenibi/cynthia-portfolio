@@ -13,4 +13,4 @@ Thumbs.db
 .idea/
 
 # local claude state
-.claude/settings.local.json
+.claude/
